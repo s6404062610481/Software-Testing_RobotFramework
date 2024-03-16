@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.9.6 on win32)" generated="2024-03-17T00:17:05.091655" rpa="false" schemaversion="5">
+<suite id="s1" name="Order test" source="c:\xampp\htdocs\shopping\testing\Order_test.robot">
+<test id="s1-t1" name="Case3 Check GrandTotal In Shopping Cart Test" line="38">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-03-17T00:17:05.324638" level="INFO">Opening browser 'edge' to base url 'http://localhost/shopping/Web/login.php'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-03-17T00:17:05.323636" elapsed="1.696157"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-17T00:17:07.023205" level="INFO">Typing text 'bbb@email.com' into text field 'name=email'.</msg>
+<arg>name=email</arg>
+<arg>${EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-17T00:17:07.021847" elapsed="0.147237"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-03-17T00:17:07.170099" level="INFO">Typing password into text field 'name=password'.</msg>
+<msg time="2024-03-17T00:17:07.204845" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>name=password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-17T00:17:07.169084" elapsed="0.090776"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-03-17T00:17:07.261055" level="INFO">Clicking button 'name=submit'.</msg>
+<arg>name=submit</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-17T00:17:07.259860" elapsed="0.129434"/>
+</kw>
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2024-03-17T00:17:07.398763" level="INFO">Current location is 'http://localhost/shopping/Web/index.php'.</msg>
+<arg>${INDEX_URL}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2024-03-17T00:17:07.390317" elapsed="0.008446"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-03-17T00:17:07.401259" level="INFO">Clicking button 'name=add_to_cart'.</msg>
+<arg>name=add_to_cart</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-17T00:17:07.399776" elapsed="0.111697"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-03-17T00:17:07.543845" level="INFO">${grand_total} = $3222/-</msg>
+<var>${grand_total}</var>
+<arg>xpath=//tr[@class='table-bottom']/td[contains(text(), 'grand total')]/following-sibling::td</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-17T00:17:07.512498" elapsed="0.031347"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-17T00:17:07.544853" level="INFO">Grand Total: $3222/-</msg>
+<arg>Grand Total: ${grand_total}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-17T00:17:07.543845" elapsed="0.001008"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<arg>${grand_total.replace("$", "").replace("/-", "").strip()}</arg>
+<arg>${expected_grand_total}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-03-17T00:17:07.545867" elapsed="0.001041"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-03-17T00:17:10.561540" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-03-17T00:17:07.547915" elapsed="3.014159"/>
+</kw>
+<status status="PASS" start="2024-03-17T00:17:05.321574" elapsed="5.241583"/>
+</test>
+<status status="PASS" start="2024-03-17T00:17:05.097571" elapsed="5.466817"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Order test">Order test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

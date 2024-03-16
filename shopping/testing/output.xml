@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.9.6 on win32)" generated="2024-03-16T23:39:41.559949" rpa="false" schemaversion="5">
+<suite id="s1" name="Login test" source="C:\xampp\htdocs\shopping\testing\Login_test.robot">
+<test id="s1-t1" name="Case1 Valid Credentials Login Test" line="11">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:39:41.854314" level="INFO">Opening browser 'edge' to base url 'http://localhost/shopping/Web/login.php'.</msg>
+<arg>http://localhost/shopping/Web/login.php</arg>
+<arg>edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-03-16T23:39:41.854314" elapsed="1.890340"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:39:43.747189" level="INFO">Typing text 'bbb@email.com' into text field 'name=email'.</msg>
+<arg>name=email</arg>
+<arg>bbb@email.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-16T23:39:43.745681" elapsed="0.191761"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:39:43.937442" level="INFO">Typing password into text field 'name=password'.</msg>
+<msg time="2024-03-16T23:39:43.977212" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>name=password</arg>
+<arg>bbb</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-16T23:39:43.937442" elapsed="0.095726"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:39:44.034195" level="INFO">Clicking button 'name=submit'.</msg>
+<arg>name=submit</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-16T23:39:44.034195" elapsed="0.136730"/>
+</kw>
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:39:44.177537" level="INFO">Current location is 'http://localhost/shopping/Web/index.php'.</msg>
+<arg>http://localhost/shopping/Web/index.php</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2024-03-16T23:39:44.170925" elapsed="0.007676"/>
+</kw>
+<doc>Test logging in with valid credentials</doc>
+<tag>login</tag>
+<status status="PASS" start="2024-03-16T23:39:41.853339" elapsed="2.325262"/>
+</test>
+<test id="s1-t2" name="Case2 Invalid Credentials Login Test" line="21">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:39:44.180804" level="INFO">Opening browser 'edge' to base url 'http://localhost/shopping/Web/login.php'.</msg>
+<arg>http://localhost/shopping/Web/login.php</arg>
+<arg>edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-03-16T23:39:44.180804" elapsed="3.433569"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:39:47.615467" level="INFO">Typing text 'aaa@email.com' into text field 'name=email'.</msg>
+<arg>name=email</arg>
+<arg>aaa@email.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-16T23:39:47.615467" elapsed="0.171701"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:39:47.788201" level="INFO">Typing password into text field 'name=password'.</msg>
+<msg time="2024-03-16T23:39:47.821933" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>name=password</arg>
+<arg>aaa</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-16T23:39:47.788201" elapsed="0.087803"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:39:47.877508" level="INFO">Clicking button 'name=submit'.</msg>
+<arg>name=submit</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-16T23:39:47.877508" elapsed="0.093484"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css=.message</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-03-16T23:39:47.971993" elapsed="0.015357"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:39:48.009718" level="INFO">${message_text} = Incorrect Password Or Email!</msg>
+<var>${message_text}</var>
+<arg>css=.message</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-16T23:39:47.987350" elapsed="0.023459"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${message_text}</arg>
+<arg>Incorrect Password Or Email!</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-03-16T23:39:48.010809" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-03-16T23:39:48.011824" elapsed="2.153078"/>
+</kw>
+<doc>Test logging in with valid credentials</doc>
+<tag>login</tag>
+<status status="PASS" start="2024-03-16T23:39:44.179807" elapsed="5.985095"/>
+</test>
+<test id="s1-t3" name="Case3 Empty Email and Password Login Test" line="35">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:39:50.167232" level="INFO">Opening browser 'edge' to base url 'http://localhost/shopping/Web/login.php'.</msg>
+<arg>http://localhost/shopping/Web/login.php</arg>
+<arg>edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-03-16T23:39:50.167232" elapsed="3.119970"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:39:53.290319" level="INFO">Typing text '' into text field 'name=email'.</msg>
+<arg>name=email</arg>
+<arg>${EMPTY}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-16T23:39:53.288291" elapsed="0.124453"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:39:53.415010" level="INFO">Typing password into text field 'name=password'.</msg>
+<msg time="2024-03-16T23:39:53.464994" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>name=password</arg>
+<arg>${EMPTY}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-16T23:39:53.413966" elapsed="0.106615"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:39:53.520581" level="INFO">Clicking button 'name=submit'.</msg>
+<arg>name=submit</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-16T23:39:53.520581" elapsed="0.084615"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css=.message</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-03-16T23:39:53.605196" elapsed="0.012349"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:39:53.638547" level="INFO">${message_text} = Please Enter Email And Password.</msg>
+<var>${message_text}</var>
+<arg>css=.message</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-16T23:39:53.617545" elapsed="0.021002"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${message_text}</arg>
+<arg>Please Enter Email And Password.</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-03-16T23:39:53.639651" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-03-16T23:39:53.639651" elapsed="2.131087"/>
+</kw>
+<doc>Test logging in with an empty email field</doc>
+<tag>login</tag>
+<status status="PASS" start="2024-03-16T23:39:50.166229" elapsed="5.605614"/>
+</test>
+<test id="s1-t4" name="Case4 Empty Email Login Test" line="47">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:39:55.772859" level="INFO">Opening browser 'edge' to base url 'http://localhost/shopping/Web/login.php'.</msg>
+<arg>http://localhost/shopping/Web/login.php</arg>
+<arg>edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-03-16T23:39:55.772859" elapsed="3.390837"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:39:59.164849" level="INFO">Typing text '' into text field 'name=email'.</msg>
+<arg>name=email</arg>
+<arg>${EMPTY}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-16T23:39:59.163696" elapsed="0.084714"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:39:59.249429" level="INFO">Typing password into text field 'name=password'.</msg>
+<msg time="2024-03-16T23:39:59.282047" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>name=password</arg>
+<arg>aaa</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-16T23:39:59.249429" elapsed="0.091075"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:39:59.341847" level="INFO">Clicking button 'name=submit'.</msg>
+<arg>name=submit</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-16T23:39:59.341847" elapsed="0.088780"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css=.message</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-03-16T23:39:59.430627" elapsed="0.012093"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:39:59.464268" level="INFO">${message_text} = Please Enter Email.</msg>
+<var>${message_text}</var>
+<arg>css=.message</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-16T23:39:59.443735" elapsed="0.020533"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${message_text}</arg>
+<arg>Please Enter Email.</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-03-16T23:39:59.464268" elapsed="0.001125"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-03-16T23:39:59.465393" elapsed="2.136651"/>
+</kw>
+<doc>Test logging in with an empty email field</doc>
+<tag>login</tag>
+<status status="PASS" start="2024-03-16T23:39:55.772859" elapsed="5.829185"/>
+</test>
+<test id="s1-t5" name="Case5 Empty Password Login Test" line="59">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:40:01.604193" level="INFO">Opening browser 'edge' to base url 'http://localhost/shopping/Web/login.php'.</msg>
+<arg>http://localhost/shopping/Web/login.php</arg>
+<arg>edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-03-16T23:40:01.604193" elapsed="3.074790"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:40:04.680251" level="INFO">Typing text 'aaa@email.com' into text field 'name=email'.</msg>
+<arg>name=email</arg>
+<arg>aaa@email.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-16T23:40:04.678983" elapsed="0.150525"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:40:04.831524" level="INFO">Typing password into text field 'name=password'.</msg>
+<msg time="2024-03-16T23:40:04.870690" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>name=password</arg>
+<arg>${EMPTY}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-16T23:40:04.830511" elapsed="0.085254"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:40:04.915765" level="INFO">Clicking button 'name=submit'.</msg>
+<arg>name=submit</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-16T23:40:04.915765" elapsed="0.089643"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css=.message</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-03-16T23:40:05.005408" elapsed="0.012220"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-03-16T23:40:05.050910" level="INFO">${message_text} = Please Enter Password.</msg>
+<var>${message_text}</var>
+<arg>css=.message</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-16T23:40:05.017628" elapsed="0.033282"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${message_text}</arg>
+<arg>Please Enter Password.</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-03-16T23:40:05.051919" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-03-16T23:40:05.051919" elapsed="2.143974"/>
+</kw>
+<doc>Test logging in with an empty email field</doc>
+<tag>login</tag>
+<status status="PASS" start="2024-03-16T23:40:01.604193" elapsed="5.591700"/>
+</test>
+<status status="PASS" start="2024-03-16T23:39:41.562348" elapsed="25.635064"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="5" fail="0" skip="0">login</stat>
+</tag>
+<suite>
+<stat pass="5" fail="0" skip="0" id="s1" name="Login test">Login test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
